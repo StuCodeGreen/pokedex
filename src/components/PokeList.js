@@ -15,17 +15,18 @@ export default class PokeList extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {this.state.pokemon ? (
           <div className="row">
             {this.state.pokemon.map((pokemon, index) => (
+							
               <PokeCard key={index} name={pokemon.name} url={pokemon.url} />
             ))}
           </div>
         ) : (
           <h4>Loading...</h4>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }

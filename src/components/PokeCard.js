@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 export default class PokeCard extends Component {
   state = {
     name: '',
-    species: ''
+    url: '',
+    image: ''
   };
 
-  render() {
-    const name = this.props.name;
-    const image = this.props.image;
+  async componentDidMount() {
+    const { name, url } = this.props;
+    const res = await axios.get(url);
+    this.setState({
+      name,
+      image: res.data['sprites'].front_default
+    });
+  }
 
+  render() {
+    console.log(this.state.sprites);
     return (
       <div
-        clasName="row"
+        clasName="col-3"
         style={{
           background: 'pink'
         }}
@@ -23,9 +32,12 @@ export default class PokeCard extends Component {
             width: '18rem'
           }}
         >
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src={this.state.image} />
           <Card.Body>
-            <Card.Title> {name} </Card.Title>{' '}
+            <Card.Title style={{ textTransform: 'capitalize' }}>
+              {' '}
+              {this.state.name}{' '}
+            </Card.Title>{' '}
             <Card.Text>
               Some quick example text to build on the card title and make up the
               bulk of the card 's content.{' '}
