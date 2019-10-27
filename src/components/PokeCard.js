@@ -3,8 +3,8 @@ import { Card, Button } from 'react-bootstrap';
 export default class PokeCard extends Component {
 	render() {
 		return (
-			<div clasName='col-3'>
-				<Card style={{ width: '18rem' }}>
+			<div clasName="row"  style={{ background:'pink' }}>
+				<Card className="my-5" style={{ width: '18rem' }}>
   <Card.Img variant="top" src="holder.js/100px180" />
   <Card.Body>
     <Card.Title>Card Title</Card.Title>

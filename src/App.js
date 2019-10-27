@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
 import MyNavbar from "./components/MyNavbar";
-import PokeCard from "./components/PokeCard";
+import PokeList from "./components/PokeList";
 
 function App() {
   return (
     <div className="App">
 			<MyNavbar />
-			<PokeCard/>
+			<div className="container">
+				<PokeList/>
+			</div>
+	
     </div>
   );
 }
