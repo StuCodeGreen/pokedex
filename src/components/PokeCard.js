@@ -28,8 +28,8 @@ export default class PokeCard extends Component {
       name,
 			image: res.data['sprites'].front_default,
 			species: res.data['species'].name,
-			weight: res.data['weight'],
-			height: res.data['height'],
+			weight: res.data['weight']/100,
+			height: res.data['height']*10,
 			abilities
     });
   }
@@ -43,24 +43,21 @@ export default class PokeCard extends Component {
         <Card
           className="my-5"
           style={{
-            width: '16rem'
+						width: '16rem',
+						height: '16rem'
           }}
         >
-          <Card.Img variant="top" src={this.state.image} />
-          <Card.Body style={{ textTransform: 'capitalize' }}>
+          <Card.Img variant="top" src={this.state.image} style={{ width: '8rem' }} />
+          <Card.Body style={{ textTransform: 'capitalize',paddingTop:0 }}>
             <Card.Title >
               {this.state.name}
             </Card.Title>
             <Card.Text>
 							Species: {this.state.species}<br/>
-							Height: {this.state.height}<br/>
-							Weight: {this.state.weight}<br/>
-							Abilities: {this.state.abilities}
-						
-
-            
+							Height: {this.state.height} Cm<br/>
+							Weight: {this.state.weight} kg<br/>
+							Abilities: {this.state.abilities}      
             </Card.Text>
-            <Button variant="primary"> Go somewhere </Button>
           </Card.Body>
         </Card>
       </div>

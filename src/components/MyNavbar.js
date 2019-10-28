@@ -6,7 +6,7 @@ export default class MyNavbar extends Component {
 		return (
 
 			<Navbar variant="dark">
-				<Navbar.Brand href="#home">
+				<Navbar.Brand href="#">
 					<img
 						alt="logo"
 						src="/pokedex.png"
