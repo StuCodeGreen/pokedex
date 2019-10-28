@@ -6,7 +6,7 @@ export default class PokeCard extends Component {
     name: '',
     url: '',
 		image: '',
-		species:'',
+		type:'',
 		weight: '',
 		height:'',
 		abilities: '',
@@ -23,11 +23,18 @@ export default class PokeCard extends Component {
 				.join(' ');
 		})
 		.join(', ');
+		const type = res.data.types
+		.map(type => {
+			return type.type.name
+				.split('-')
+				.join(' ');
+		})
+		.join(', ');
 
     this.setState({
       name,
 			image: res.data['sprites'].front_default,
-			species: res.data['species'].name,
+			type,
 			weight: res.data['weight']/100,
 			height: res.data['height']*10,
 			abilities
@@ -53,7 +60,7 @@ export default class PokeCard extends Component {
               {this.state.name}
             </Card.Title>
             <Card.Text>
-							Species: {this.state.species}<br/>
+							Type: {this.state.type}<br/>
 							Height: {this.state.height} Cm<br/>
 							Weight: {this.state.weight} kg<br/>
 							Abilities: {this.state.abilities}      
