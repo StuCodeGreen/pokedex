@@ -5,3 +5,7 @@
 nav {
 	background: rgb(255, 60, 60);
 }
+
+span {
+	text-transform: lowercase;
+}

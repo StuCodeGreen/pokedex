@@ -61,8 +61,8 @@ export default class PokeCard extends Component {
             </Card.Title>
             <Card.Text>
 							Type: {this.state.type}<br/>
-							Height: {this.state.height} Cm<br/>
-							Weight: {this.state.weight} kg<br/>
+							Height: {this.state.height} <span>cm</span> <br/>
+							Weight: {this.state.weight} <span>kg</span> <br/>
 							Abilities: {this.state.abilities}      
             </Card.Text>
           </Card.Body>
