@@ -5,46 +5,64 @@ export default class PokeCard extends Component {
   state = {
     name: '',
     url: '',
-    image: ''
+		image: '',
+		species:'',
+		weight: '',
+		height:'',
+		abilities: '',
   };
 
   async componentDidMount() {
     const { name, url } = this.props;
-    const res = await axios.get(url);
+		const res = await axios.get(url);
+		
+		const abilities = res.data.abilities
+		.map(ability => {
+			return ability.ability.name
+				.split('-')
+				.join(' ');
+		})
+		.join(', ');
+
     this.setState({
       name,
-      image: res.data['sprites'].front_default
+			image: res.data['sprites'].front_default,
+			species: res.data['species'].name,
+			weight: res.data['weight'],
+			height: res.data['height'],
+			abilities
     });
   }
 
   render() {
-    console.log(this.state.sprites);
+
+    // console.log(this.state.abilities);
     return (
-      <div
-        clasName="col-3"
-        style={{
-          background: 'pink'
-        }}
-      >
+			
+      <div className="col-3">
         <Card
           className="my-5"
           style={{
-            width: '18rem'
+            width: '16rem'
           }}
         >
           <Card.Img variant="top" src={this.state.image} />
-          <Card.Body>
-            <Card.Title style={{ textTransform: 'capitalize' }}>
-              {' '}
-              {this.state.name}{' '}
-            </Card.Title>{' '}
+          <Card.Body style={{ textTransform: 'capitalize' }}>
+            <Card.Title >
+              {this.state.name}
+            </Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card 's content.{' '}
-            </Card.Text>{' '}
-            <Button variant="primary"> Go somewhere </Button>{' '}
-          </Card.Body>{' '}
-        </Card>{' '}
+							Species: {this.state.species}<br/>
+							Height: {this.state.height}<br/>
+							Weight: {this.state.weight}<br/>
+							Abilities: {this.state.abilities}
+						
+
+            
+            </Card.Text>
+            <Button variant="primary"> Go somewhere </Button>
+          </Card.Body>
+        </Card>
       </div>
     );
   }

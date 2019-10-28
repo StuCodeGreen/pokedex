@@ -5,7 +5,7 @@ export default class MyNavbar extends Component {
 	render() {
 		return (
 
-			<Navbar bg="dark" variant="dark">
+			<Navbar variant="dark">
 				<Navbar.Brand href="#home">
 					<img
 						alt="logo"
