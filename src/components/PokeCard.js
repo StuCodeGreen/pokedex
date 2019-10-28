@@ -46,9 +46,9 @@ export default class PokeCard extends Component {
     // console.log(this.state.abilities);
     return (
 			
-      <div className="col-3">
+      <div className="col-12 col-md-6 col-lg-4 col-xl-3">
         <Card
-          className="my-5"
+          className="my-2 mx-auto"
           style={{
 						width: '16rem',
 						height: '16rem'

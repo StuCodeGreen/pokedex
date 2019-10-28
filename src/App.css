@@ -1,9 +1,11 @@
 .App {
 	min-height: 100vh;
+	min-width: 350px;
 }
 
 nav {
 	background: rgb(255, 60, 60);
+	margin-bottom: 3rem
 }
 
 span {

@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import MyNavbar from './components/MyNavbar';
+import PokeNavbar from './components/PokeNavbar';
 import PokeList from './components/PokeList';
 
 function App() {
   return (
     <div className="App">
-      <MyNavbar />
+      <PokeNavbar />
       <div className="container">
         <PokeList />
       </div>
