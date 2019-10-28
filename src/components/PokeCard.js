@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 export default class PokeCard extends Component {
   state = {
     name: '',
