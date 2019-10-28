@@ -3,13 +3,13 @@ import axios from 'axios';
 import { Card } from 'react-bootstrap';
 export default class PokeCard extends Component {
   state = {
-    name: '',
-    url: '',
-		image: '',
-		type:'',
-		weight: '',
-		height:'',
-		abilities: '',
+    name: 'Loading....',
+    url: 'Loading....',
+		image: 'Loading....',
+		type:'Loading....',
+		weight: 'Loading....',
+		height:'Loading....',
+		abilities: 'Loading....',
   };
 
   async componentDidMount() {
