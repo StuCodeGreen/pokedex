@@ -11,7 +11,7 @@ export default class Search extends Component {
             placeholder="Search..."
             onChange={event => this.props.onTextChange(event.target.value)}
           />
-          <i className="fa fa-search search-icon" />
+          <i className="fa fa-search search-icon ml-2" />
         </label>
       </div>
     );
