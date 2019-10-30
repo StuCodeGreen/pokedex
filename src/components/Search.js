@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Search extends Component {
   render() {
     return (
-      <div>
+      <div className="col-12 text-center">
         <label className="search-label ml-3" htmlFor="search-input">
           <input
             type="text"
