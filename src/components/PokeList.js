@@ -7,11 +7,10 @@ export default class PokeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: 'https://pokeapi.co/api/v2/pokemon?limit=20',
+      url: 'https://pokeapi.co/api/v2/pokemon?limit=150',
       pokemon: null,
       query: ''
     };
-    // this.handleOnInputChange = this.handleOnInputChange.bind(this);
   }
 
   async componentDidMount() {
