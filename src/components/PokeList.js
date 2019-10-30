@@ -1,48 +1,74 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PokeCard from './PokeCard';
+import Search from './Search';
 
 export default class PokeList extends Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			url: 'https://pokeapi.co/api/v2/pokemon?limit=152',
+			url: 'https://pokeapi.co/api/v2/pokemon?limit=20',
 			pokemon: null,
 			query:''
 		};
-		this.handleOnInputChange = this.handleOnInputChange.bind(this);
+		// this.handleOnInputChange = this.handleOnInputChange.bind(this);
 	}
 
   async componentDidMount() {
     const res = await axios.get(this.state.url);
-    this.setState({ pokemon: res.data['results'] });
+		this.setState({ pokemon: res.data['results'] });
+		
+		
 	}
+
+	// 	handleOnInputChange = (event) => {
+	// 	const query = event.target.value;
+	// 	this.setState({ query } );
+	// };
 	
-	handleOnInputChange = (event) => {
-		const query = event.target.value;
-							this.setState({ query } );
-	};
+
 
   render() {
     return (
       <React.Fragment>
         {this.state.pokemon ? (
           <div className="row">
-            <label className="search-label" htmlFor="search-input">
+						<Search onTextChange={text => {
+							this.setState({query:text})
+						}}/>
+            {/* <label className="search-label" htmlFor="search-input">
               <input
                 type="text"
                 value={this.state.query}
                 id="search-input"
                 placeholder="Search..."
-                onChange={this.handleOnInputChange}
+                // onChange={this.handleOnInputChange}
+								onKeyUp={event =>
+									this.props.onTextChange(event.target.value)}
               />
               <i className="fa fa-search search-icon" />
-            </label>
+            </label> */}
             <div className="col-12">
               <div className="row">
-                {this.state.pokemon.map((pokemon, index) => (								
-                  <PokeCard key={index} name={pokemon.name} url={pokemon.url} />
-                ))}
+								{this.state.pokemon.filter( pokemon => {
+								
+										// return pokemon.name.includes(this.state.query)
+										// console.log(`${this.state.query} : ${pokemon.name}`)
+										if(pokemon.name.includes(this.state.query)){
+											console.log(`${this.state.query} : ${pokemon.name}`)
+											// console.log(`${pokemon}`)
+											return true	
+										} else {
+										return false
+										}
+										
+								}
+							
+									
+								).map((pokemon, index) => (								
+									
+								  <PokeCard key={index} name={pokemon.name} url={pokemon.url} />
+								))}
               </div>
             </div>
           </div>
