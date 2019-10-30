@@ -33,9 +33,9 @@ export default class PokeList extends Component {
               <div className="row">
                 {this.state.pokemon
                   .filter(pokemon => pokemon.name.includes(this.state.query))
-                  .map((pokemon, index) => (
+                  .map(pokemon => (
                     <PokeCard
-                      key={index}
+                      key={pokemon.name}
                       name={pokemon.name}
                       url={pokemon.url}
                     />
