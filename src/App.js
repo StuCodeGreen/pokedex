@@ -3,6 +3,7 @@ import './App.css';
 import PokeNavbar from './components/PokeNavbar';
 import PokeList from './components/PokeList';
 
+
 function App() {
   return (
     <div className="App">
